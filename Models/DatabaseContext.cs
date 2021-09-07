@@ -7,14 +7,13 @@ namespace DataAccessLayer.Models
 {
     public partial class DatabaseContext : DbContext
     {
-        // Change this if you want to have a different database name in development
         private static string DEVELOPMENT_DATABASE_NAME = "DataAccessLayerDatabase";
 
-        // Change this to true if you want to have logging of SQL statements in development
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
-        // Add database tables here
-
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
